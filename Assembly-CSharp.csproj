@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\LevelSpawner.cs" />
     <Compile Include="Assets\Script\DestroyObj.cs" />
     <Compile Include="Assets\Script\MenuScript.cs" />
+    <Compile Include="Assets\Script\PondSpawn.cs" />
     <Compile Include="Assets\Script\RepeatBackground.cs" />
     <Compile Include="Assets\Script\GameManger.cs" />
     <Compile Include="Assets\Script\Moving Credit.cs" />

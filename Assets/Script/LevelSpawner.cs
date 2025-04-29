@@ -22,7 +22,7 @@ public class SpawnerCode : MonoBehaviour
         SpawnTo.transform.position += new Vector3(0, 0, -20);
     }
 
-    void Update()   
+    void Update()
     {
         transform.position += new Vector3(0, 0, 5 * Time.deltaTime);
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Movwleft : MonoBehaviour
+public class Moveleft : MonoBehaviour
 {
   
        public float speed = 10f;
