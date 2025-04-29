@@ -50,10 +50,13 @@
     <Compile Include="Assets\Script\DestroyObj.cs" />
     <Compile Include="Assets\Script\MenuScript.cs" />
     <Compile Include="Assets\Script\RepeatBackground.cs" />
+    <Compile Include="Assets\Script\GameManger.cs" />
     <Compile Include="Assets\Script\Moving Credit.cs" />
     <Compile Include="Assets\Script\Moveleft.cs" />
     <Compile Include="Assets\Script\Mouse Showing with ESC.cs" />
+    <Compile Include="Assets\Script\ChatPlayerController.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Script\ChatSpawner.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\SpawnSwords.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
