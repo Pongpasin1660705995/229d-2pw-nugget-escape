@@ -50,8 +50,8 @@
     <Compile Include="Assets\Script\DestroyObj.cs" />
     <Compile Include="Assets\Script\MenuScript.cs" />
     <Compile Include="Assets\Script\RepeatBackground.cs" />
-    <Compile Include="Assets\Script\Movwleft.cs" />
     <Compile Include="Assets\Script\Moving Credit.cs" />
+    <Compile Include="Assets\Script\Moveleft.cs" />
     <Compile Include="Assets\Script\Mouse Showing with ESC.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
