@@ -3,134 +3,66 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlsyerController : MonoBehaviour
 {
+    private CharacterController Controller;
+    private Vector3 Velocity;
+    private bool Cooldown;
     public float speed;
-    public float jumpTime = 0.3f;
-    public float jumpHeight = 2f;
-    public Rigidbody2D rb;
+
+    public float jumpTime = 0.3f; // เวลาที่ใช้ขึ้นไปถึงจุดสูงสุด
+    public float jumpHeight = 2f; // ความสูงของการกระโดด
+    public Rigidbody2D rb; // ตัวละครห
+
+    private Rigidbody2D rb2d;
+    private GameObject LookAt;
+    private float moveInput;
+    public GameObject Cube1;
+    public GameObject Cube2;
+
 
     public TextMeshProUGUI ScoreText;
-    public TextMeshProUGUI LivesText;
-    public GameObject hitEffectPrefab;
+    private int Score;
+    private void OntriggerEnter(Collider other)
+    {
+        if (other.tag == "Score")
+        {
+            Score++;
+        }
 
-    public AudioClip hitSound;             // ไฟล์เสียง
-    public AudioSource audioSource;        // AudioSource ที่จะเล่นเสียง
-
-
-    public GameObject GameOverUI;
-    public TextMeshProUGUI GameOverScoreText;
-    public TextMeshProUGUI GameOverHighScoreText;
-    public Button RestartButton;
-    public Button MainMenuButton;
-
-    public int lives = 3;
-    private int score = 0;
-
+        if (other.tag == "Obstacle")
+        {
+            SceneManager.LoadScene("GamePlay");
+        }
+    }
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UpdateUI();
-        GameOverUI.SetActive(false);
-
-        // เชื่อมปุ่มกับฟังก์ชัน
-        RestartButton.onClick.AddListener(RestartGame);
-        MainMenuButton.onClick.AddListener(GoToMainMenu);
+        
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 origin = rb.position;
-            Vector2 target = origin + new Vector2(0, jumpHeight);
+            Vector2 target = origin + new Vector2(0, jumpHeight); // กระโดดขึ้นตามแกน Y
             Vector2 velocity = CalculateProjectileVelocity(origin, target, jumpTime);
-            rb.velocity = velocity;
+            rb.velocity = velocity; // กำหนดความเร็วใหม่ให้กระโดด
         }
 
-        UpdateUI();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Obstacle"))
-        {
-            // เล่น FX
-            if (hitEffectPrefab != null)
-            {
-                Instantiate(hitEffectPrefab, collision.contacts[0].point, Quaternion.identity);
-            }
-
-            // เล่นเสียง
-            if (hitSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(hitSound);
-            }
-
-            lives--;
-            Destroy(collision.gameObject);
-
-            if (lives <= 0)
-            {
-                GameOver();
-            }
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Score"))
-        {
-            score++;
-            Destroy(other.gameObject);
-        }
-    }
-
-    void GameOver()
-    {
-        rb.simulated = false;
-        GameOverUI.SetActive(true);
-
-        int highScore = PlayerPrefs.GetInt("HighScore", 0);
-        if (score > highScore)
-        {
-            highScore = score;
-            PlayerPrefs.SetInt("HighScore", highScore);
-        }
-
-        GameOverScoreText.text = "Score: " + score;
-        GameOverHighScoreText.text = "High Score: " + highScore;
-
-        Time.timeScale = 0f; // หยุดเวลาเกม
-        gameObject.SetActive(false); // ทำลายตัวผู้เล่น
-    }
-
-    void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        ScoreText.text = Score.ToString();
     }
 
     Vector2 CalculateProjectileVelocity(Vector2 origin, Vector2 target, float time)
     {
         Vector2 distance = target - origin;
+
         float velocityX = distance.x / time;
         float velocityY = distance.y / time + 0.5f * Mathf.Abs(Physics2D.gravity.y) * time;
-        return new Vector2(velocityX, velocityY);
-    }
 
-    void UpdateUI()
-    {
-        ScoreText.text = "Score: " + score;
-        if (LivesText != null)
-        {
-            LivesText.text = "Lives: " + lives;
-        }
+        return new Vector2(velocityX, velocityY);
     }
 }
