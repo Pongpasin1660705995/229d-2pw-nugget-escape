@@ -42,8 +42,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9110806963180413063}
   - component: {fileID: 3946323509543597223}
-  - component: {fileID: 8164339668368859488}
   - component: {fileID: 2227773420390142483}
+  - component: {fileID: 1659776964142347645}
   m_Layer: 0
   m_Name: Fork (1)
   m_TagString: Obstacle
@@ -121,24 +121,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!252 &8164339668368859488
-SurfaceEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628671280646323536}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Speed: 1
-  m_SpeedVariation: 0
-  m_ForceScale: 0.1
-  m_UseContactForce: 0
-  m_UseFriction: 1
-  m_UseBounce: 1
 --- !u!61 &2227773420390142483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,6 +167,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.809563, y: 4.446547}
   m_EdgeRadius: 0
+--- !u!252 &1659776964142347645
+SurfaceEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628671280646323536}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 1
+  m_SpeedVariation: 0
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1
 --- !u!1 &2991805432248012589
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,8 +368,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6099670236672459212}
   - component: {fileID: 265837573330100035}
-  - component: {fileID: 5966979994365978004}
   - component: {fileID: 1008927162423397958}
+  - component: {fileID: 3012012044064558900}
   m_Layer: 0
   m_Name: Fork (2)
   m_TagString: Obstacle
@@ -447,24 +447,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!252 &5966979994365978004
-SurfaceEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278711136212517217}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Speed: 1
-  m_SpeedVariation: 0
-  m_ForceScale: 0.1
-  m_UseContactForce: 0
-  m_UseFriction: 1
-  m_UseBounce: 1
 --- !u!61 &1008927162423397958
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -511,3 +493,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.88592917, y: 4.4861703}
   m_EdgeRadius: 0
+--- !u!252 &3012012044064558900
+SurfaceEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278711136212517217}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 1
+  m_SpeedVariation: 0
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1
