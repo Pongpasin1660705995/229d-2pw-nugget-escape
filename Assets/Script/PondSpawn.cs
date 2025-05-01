@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Spawner2D : MonoBehaviour
 {
-    public GameObject[] prefabs;          // Array �ͧ Prefab
-    public float spawnDistance = 20f;     // ������ҧ��͹ spawn �Ѵ�
-    public float prefabMoveSpeed = 5f;    // �������� prefab ����͹���
+    public GameObject[] prefabTypeA;      // ประเภท A (เช่น ท่อ)
+    public GameObject[] prefabTypeB;      // ประเภท B (เช่น เมฆ)
+
+    public float spawnDistance = 20f;
+    public float prefabMoveSpeed = 5f;
 
     private GameObject lastSpawned;
 
@@ -23,9 +25,14 @@ public class Spawner2D : MonoBehaviour
 
     void SpawnNew()
     {
-        int index = Random.Range(0, prefabs.Length);
-        GameObject prefab = prefabs[index];
+        // เลือกประเภท A หรือ B
+        GameObject[] chosenGroup = Random.value < 0.6f ? prefabTypeA : prefabTypeB;
 
+        // สุ่ม prefab จากกลุ่มที่เลือก
+        int index = Random.Range(0, chosenGroup.Length);
+        GameObject prefab = chosenGroup[index];
+
+        // สร้างและกำหนดการเคลื่อนที่
         GameObject spawned = Instantiate(prefab, transform.position, Quaternion.identity);
         spawned.AddComponent<Moveleft>().speed = prefabMoveSpeed;
 

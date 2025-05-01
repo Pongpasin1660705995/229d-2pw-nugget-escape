@@ -561,10 +561,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9f381e363efb248a2cc8b910ea91ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
+  prefabTypeA:
   - {fileID: 8015897003570997636, guid: ed33ae2eefb1f8f43b3469c4f079039e, type: 3}
   - {fileID: 2083792740786234372, guid: 123662a30185fe94bbb6f72dc2462074, type: 3}
   - {fileID: 1501630361631002804, guid: 919ef6cd5b9a54e40a963a70f5a6d74f, type: 3}
+  prefabTypeB:
+  - {fileID: 4953957554595160508, guid: 6b43b15793805044586a6e03bf4b42b8, type: 3}
+  - {fileID: 1567973865784487898, guid: d7445105a14b84a47ae8fb47bfa61f8f, type: 3}
+  - {fileID: 8620943327318961450, guid: 4e0d3e0dbe97bc1498fb6f8a12128963, type: 3}
   spawnDistance: 20
   prefabMoveSpeed: 5
 --- !u!1 &832575517
