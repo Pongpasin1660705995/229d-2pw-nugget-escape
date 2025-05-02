@@ -5,8 +5,15 @@ public class MenuScript : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("GamePlay");
+        SceneManager.LoadScene(1);
     }
+    
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 
     public void SettingMenuOpen()
     {

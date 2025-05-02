@@ -4,7 +4,7 @@ public class DestroyNugget : MonoBehaviour
 {
     private float topBound = 10f;
     private float lowerBound = -10f;
-    private PlayerController player;
+    public PlayerController player;
 
     void Start()
     {

@@ -1067,7 +1067,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 353834570}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: MainMenuOpen
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1359,6 +1359,7 @@ MonoBehaviour:
   RestartButton: {fileID: 776654896}
   MainMenuButton: {fileID: 1836716181}
   lives: 3
+  isGameOver: 0
 --- !u!50 &973269590
 Rigidbody2D:
   serializedVersion: 5
@@ -1608,6 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc823286a04070c42aa77b22d6750bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &1081250790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,9 +1680,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Credit
-
-'
+  m_Text: Main Menu
 --- !u!222 &1081250793
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2378,7 +2378,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Restart
 --- !u!222 &1727281902
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2401,7 +2401,7 @@ GameObject:
   - component: {fileID: 1836716181}
   - component: {fileID: 1836716184}
   m_Layer: 5
-  m_Name: 'Credit and Main MenuMainMenuButton '
+  m_Name: 'Main MenuMainMenuButton '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2473,7 +2473,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 353834570}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: CreditsOpen
+        m_MethodName: MainMenuOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

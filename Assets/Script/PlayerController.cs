@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public int lives = 3;
     private int score = 0;
-    private bool isGameOver = false;
+    public bool isGameOver = false;
 
     void Start()
     {
