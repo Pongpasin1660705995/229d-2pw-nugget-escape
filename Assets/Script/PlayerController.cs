@@ -12,11 +12,6 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI LivesText;
-    public GameObject hitEffectPrefab;
-
-    public AudioClip hitSound;             // ไฟล์เสียง
-    public AudioSource audioSource;        // AudioSource ที่จะเล่นเสียง
-
 
     public GameObject GameOverUI;
     public TextMeshProUGUI GameOverScoreText;
@@ -26,19 +21,21 @@ public class PlayerController : MonoBehaviour
 
     public int lives = 3;
     private int score = 0;
+    private bool isGameOver = false;
 
     void Start()
     {
         UpdateUI();
         GameOverUI.SetActive(false);
 
-        // เชื่อมปุ่มกับฟังก์ชัน
         RestartButton.onClick.AddListener(RestartGame);
         MainMenuButton.onClick.AddListener(GoToMainMenu);
     }
 
     void Update()
     {
+        if (isGameOver) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 origin = rb.position;
@@ -52,20 +49,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isGameOver) return;
+
         if (collision.collider.CompareTag("Obstacle"))
         {
-            // เล่น FX
-            if (hitEffectPrefab != null)
-            {
-                Instantiate(hitEffectPrefab, collision.contacts[0].point, Quaternion.identity);
-            }
-
-            // เล่นเสียง
-            if (hitSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(hitSound);
-            }
-
             lives--;
             Destroy(collision.gameObject);
 
@@ -76,7 +63,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Score"))
@@ -86,8 +72,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void GameOver()
+    public void GameOver()
     {
+        if (isGameOver) return;
+        isGameOver = true;
+
         rb.simulated = false;
         GameOverUI.SetActive(true);
 
@@ -101,8 +90,8 @@ public class PlayerController : MonoBehaviour
         GameOverScoreText.text = "Score: " + score;
         GameOverHighScoreText.text = "High Score: " + highScore;
 
-        Time.timeScale = 0f; // หยุดเวลาเกม
-        gameObject.SetActive(false); // ทำลายตัวผู้เล่น
+        Time.timeScale = 0f;
+        Destroy(gameObject); // ????????????
     }
 
     void RestartGame()

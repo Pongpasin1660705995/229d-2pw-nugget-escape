@@ -22,4 +22,9 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void CreditsOpen()
+    {
+        SceneManager.LoadScene("End Credit");
+    }
 }

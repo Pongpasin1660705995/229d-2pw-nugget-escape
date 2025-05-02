@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1967835574231978635}
   - component: {fileID: 1967835574231978632}
   - component: {fileID: 1967835574231978633}
-  - component: {fileID: 4410539197710509037}
+  - component: {fileID: -3748541841002253055}
   m_Layer: 0
   m_Name: FX001_01
   m_TagString: Untagged
@@ -111,7 +111,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4410539197710509037
+--- !u!114 &-3748541841002253055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
