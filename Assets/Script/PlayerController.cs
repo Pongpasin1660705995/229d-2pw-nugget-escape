@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0f;
         Destroy(gameObject); // ????????????
     }
-
     void RestartGame()
     {
         Time.timeScale = 1f;
